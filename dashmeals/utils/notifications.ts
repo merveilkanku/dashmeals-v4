@@ -26,9 +26,8 @@ export const sendPushNotification = (title: string, options?: NotificationOption
             navigator.serviceWorker.ready.then(registration => {
                 registration.showNotification(title, {
                     icon: '/logo.png', // Fallback icon
-                    vibrate: [200, 100, 200],
                     ...options
-                });
+                } as any);
             }).catch(() => {
                 // Fallback to standard Notification
                 new Notification(title, {
